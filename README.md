@@ -57,6 +57,8 @@ CREATE TABLE recipe_ingredients (
 ./setup.sh
 ```
 
+The script drops you into `psql` connected to the `blueapron` database once your `init.sql` creates it.  If you land in the default `postgres` database instead (the prompt says `postgres=#`, not `blueapron=#`), run `\c blueapron` before creating anything, or your tables will end up in the wrong database.
+
 Write at least 5 queries in `queries.sql`:
 
 1. All recipes that include a given ingredient (e.g. "salt")
