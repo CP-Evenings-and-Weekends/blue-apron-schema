@@ -2,7 +2,7 @@
 
 Design and implement a Postgres schema for a simplified Blue Apron — the focus today is modeling **subscriptions** (a user has an ongoing plan that delivers recipes on a schedule) and **recipe ingredients** (a true many-to-many relationship with quantities).
 
-> If you did Saturday's [Schema Design](https://github.com/CP-Evenings-and-Weekends/schema-design) challenge, you already drew an ERD for Blue Apron.  **Pull that diagram back up** as your starting point — today's job is to turn it into actual Postgres tables, seed it, and query it.  If you skipped Blue Apron on Saturday, do the ERD now first.
+> If you did the optional [Schema Design](https://github.com/CP-Evenings-and-Weekends/schema-design) breadth exercise from earlier this week, you already drew an ERD for Blue Apron.  **Pull that diagram back up** as your starting point — today's job is to turn it into actual Postgres tables, seed it, and query it.  If you skipped it, do the Blue Apron ERD now first.
 
 The included `init.sql`, `Dockerfile`, and `setup.sh` are wired up like [cars-database](https://github.com/CP-Evenings-and-Weekends/cars-database).
 
