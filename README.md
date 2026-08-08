@@ -23,13 +23,13 @@ Aim for Blue Apron's launch features:
 
 ### 1. Confirm or revise the ERD
 
-Use Saturday's diagram (or build one now) in [dbdiagram.io](https://dbdiagram.io/) or [Quick Database Diagrams](https://www.quickdatabasediagrams.com/).  Commit a screenshot as `erd.png` or a Mermaid `erDiagram` block as `erd.md`.
+Use your existing diagram (or build one now) in [dbdiagram.io](https://dbdiagram.io/) or [Quick Database Diagrams](https://www.quickdatabasediagrams.com/).  Commit a screenshot as `erd.png` or a Mermaid `erDiagram` block as `erd.md`.
 
 Likely tables: `users`, `addresses`, `service_plans`, `subscriptions`, `recipes`, `ingredients`, `recipe_ingredients` (join with `quantity`), `deliveries`, `delivery_recipes` (join), `promotions`, `delivery_promotions` (join).
 
 ### 2. Implement in `init.sql`
 
-Translate the ERD into `CREATE TABLE` statements.  Conventions from Saturday: plural lowercase table names, `id` primary keys, `_id` foreign keys.
+Translate the ERD into `CREATE TABLE` statements.  The usual conventions: plural lowercase table names, `id` primary keys, `_id` foreign keys.
 
 The interesting join table for today is `recipe_ingredients` — it has the join *plus* an `amount` and links to a `unit` (so "2 cups flour" can be modeled cleanly):
 
