@@ -2,8 +2,6 @@
 
 Design and implement a Postgres schema for a simplified Blue Apron — the focus today is modeling **subscriptions** (a user has an ongoing plan that delivers recipes on a schedule) and **recipe ingredients** (a true many-to-many relationship with quantities).
 
-> If you did Saturday's [Schema Design](https://github.com/CP-Evenings-and-Weekends/schema-design) challenge, you already drew an ERD for Blue Apron.  **Pull that diagram back up** as your starting point — today's job is to turn it into actual Postgres tables, seed it, and query it.  If you skipped Blue Apron on Saturday, do the ERD now first.
-
 The included `init.sql`, `Dockerfile`, and `setup.sh` are wired up like [cars-database](https://github.com/CP-Evenings-and-Weekends/cars-database).
 
 ## Feature set to support
@@ -21,15 +19,15 @@ Aim for Blue Apron's launch features:
 
 ## Requirements
 
-### 1. Confirm or revise the ERD
+### 1. Design the ERD
 
-Use Saturday's diagram (or build one now) in [dbdiagram.io](https://dbdiagram.io/) or [Quick Database Diagrams](https://www.quickdatabasediagrams.com/).  Commit a screenshot as `erd.png` or a Mermaid `erDiagram` block as `erd.md`.
+Design your schema in [dbdiagram.io](https://dbdiagram.io/) or [Quick Database Diagrams](https://www.quickdatabasediagrams.com/).  Commit a screenshot as `erd.png` or a Mermaid `erDiagram` block as `erd.md`.
 
 Likely tables: `users`, `addresses`, `service_plans`, `subscriptions`, `recipes`, `ingredients`, `recipe_ingredients` (join with `quantity`), `deliveries`, `delivery_recipes` (join), `promotions`, `delivery_promotions` (join).
 
 ### 2. Implement in `init.sql`
 
-Translate the ERD into `CREATE TABLE` statements.  Conventions from Saturday: plural lowercase table names, `id` primary keys, `_id` foreign keys.
+Translate the ERD into `CREATE TABLE` statements.  The usual conventions: plural lowercase table names, `id` primary keys, `_id` foreign keys.
 
 The interesting join table for today is `recipe_ingredients` — it has the join *plus* an `amount` and links to a `unit` (so "2 cups flour" can be modeled cleanly):
 
@@ -56,6 +54,8 @@ CREATE TABLE recipe_ingredients (
 ```bash
 ./setup.sh
 ```
+
+The script drops you into `psql` connected to the `blueapron` database once your `init.sql` creates it.  If you land in the default `postgres` database instead (the prompt says `postgres=#`, not `blueapron=#`), run `\c blueapron` before creating anything, or your tables will end up in the wrong database.
 
 Write at least 5 queries in `queries.sql`:
 
