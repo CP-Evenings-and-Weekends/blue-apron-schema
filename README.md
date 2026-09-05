@@ -27,7 +27,7 @@ Likely tables: `users`, `addresses`, `service_plans`, `subscriptions`, `recipes`
 
 ### 2. Implement in `init.sql`
 
-Translate the ERD into `CREATE TABLE` statements.  The usual conventions: plural lowercase table names, `id` primary keys, `_id` foreign keys.
+Translate the ERD into `CREATE TABLE` statements.  Conventions for your tables: plural, lowercase table names (`users`, `orders`); an `id` primary key on every table; `_id` suffixes on foreign keys (`user_id`). (This is Django's convention — you'll meet it again in Module 5.)
 
 The interesting join table for today is `recipe_ingredients` — it has the join *plus* an `amount` and links to a `unit` (so "2 cups flour" can be modeled cleanly):
 
